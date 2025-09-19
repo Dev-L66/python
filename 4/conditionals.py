@@ -46,3 +46,74 @@ elif score >=60:
 else:
     grade="F"
 print(grade)
+#  ripe checker
+
+fruit = "banna"
+color = "yellow"
+if fruit == "banana":
+  if color == "green":
+    print("unripe")
+  elif color == "yellow":
+    print("ripe")
+  elif color == "brown":
+    print("overripe")
+  else:
+    print("unknown color")
+else:
+  print("unknown fruit")
+
+#    weather checker
+weather = "sunny"
+if weather == "sunny":
+    print("Go to walking.")
+elif weather == "Rainy":
+   print("Read a book")
+elif weather == "snowy":
+   print("Build a snowman")
+
+
+# mode of transportation
+distance = 0
+
+if distance < 3:
+   print("walk")
+elif distance <=15:
+   print("bike")
+elif distance > 15:
+   print("car")
+
+size = "small"
+extra_shot = True
+
+if extra_shot:
+   coffee = size + " coffee with extra shot"
+else:
+   coffee = size + "coffee"
+   
+print(coffee)
+
+
+#  password strength checker
+password = "abc123jriej"
+pass_length = len(password)
+
+if (pass_length  < 6):
+   print("weak")
+elif (pass_length  <10):
+   print("medium")
+elif (pass_length >= 10):
+   print("strong")
+
+
+# leap year
+year = 2024
+if (year % 100 != 0 and year % 4 == 0):
+   print("leap year")
+elif  year % 400 == 0 :
+   print("not leap year")
+
+  
+
+
+   
+
