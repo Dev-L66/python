@@ -35,6 +35,7 @@ class ElectricCar (Car):
        return "Electric charge"
    
 my_car = Car("Toyota", "Corolla")
+print(my_car)
 print(my_car.get_brand(), my_car.model)
 print(my_car.fuel_type())
 
