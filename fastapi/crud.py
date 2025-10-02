@@ -8,6 +8,7 @@ from typing import List
 router = APIRouter()
 
 class TodoCreate(BaseModel):
+    # id: int
     title: str
     description: str
     done: bool
@@ -30,17 +31,25 @@ def create_todos(todo:TodoCreate, db: Session = Depends(get_db)):
     db.refresh(new_todo)
     return new_todo
     
-# @router.put('/{todo_id}')
-# def update_todo(todo_id:int, updated_todo:Todo):
-#     for i, todo in enumerate(todos):
-#         if todo.id == todo_id:
-#             todos[i]= updated_todo
-#             return{"message": "Todo updated successfully."}
-#     return {"message": "Todo not found"}
+@router.put('/{todo_id}', response_model=TodoResponse)
+def update_todo(todo_id:int, todo: TodoCreate, db:Session=Depends(get_db)):
+    db_todo = db.query(Todo).filter(Todo.id == todo_id).first()
+    if not todo:
+        raise HTTPException(status_code=404,detail="Todo Not Found.")
+    db_todo.title = todo.title
+    db_todo.description = todo.description
+    db_todo.done = todo.done
+    db.commit()
+    db.refresh(db_todo)
+    return db_todo
+    
 
 
-# @router.delete('/{todo_id}')
-# def delete_todo(todo_id:int):
-#     global todos
-#     new_todos = [todo for todo in todos if todo.id != todo_id]
-#     return{"message": "Todo deleted successfully."}
+@router.delete('/{todo_id}')
+def delete_todo(todo_id:int, db: Session=Depends(get_db)):
+   db_todo = db.query(Todo).filter(Todo.id == todo_id).first()
+   if not db_todo:
+        raise HTTPException(status_code=404,detail="Todo Not Found.")
+   db.delete(db_todo)
+   db.commit()
+   return {"message": "Todo deleted successfully."}
