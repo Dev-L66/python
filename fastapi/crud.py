@@ -3,14 +3,14 @@ from pydantic import BaseModel
 from database import get_db
 from sqlalchemy.orm import Session
 from models import Todo
-from typing import List
+from typing import List, Optional
 
 router = APIRouter()
 
 class TodoCreate(BaseModel):
     # id: int
     title: str
-    description: str
+    description: Optional [str] = None
     done: bool
 
 class TodoResponse(TodoCreate):
