@@ -19,4 +19,22 @@ print(f"Total grams:{total}")
 total = black_tea / ginger
 print(f"Total grams:{total}")
 
+# Round division
+total = black_tea // ginger
+print(f"Total grams:{total}")
+
+
+# remainder
+total = black_tea % ginger
+print(f"Total grams:{total}")
+
+# exponent
+total = black_tea ** ginger
+print(f"Total grams:{total}")
+
+
+
+# to improve readability od=f big numbers  _ is used
+total = 1_0000_0000_0000
+print(total)
 
