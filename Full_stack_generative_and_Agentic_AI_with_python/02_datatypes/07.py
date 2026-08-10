@@ -13,3 +13,6 @@ ginger, cardamom = cardamom, ginger
 
 print(f"ginger: {ginger}, cardamom: {cardamom}")
 
+
+# membership
+print(f"Is pple in fruits? {'apple' in fruits}")
