@@ -246,3 +246,4 @@
 from collections import namedtuple
 profile = namedtuple("profile", ["flavour", "size"])
 print(profile)
+
