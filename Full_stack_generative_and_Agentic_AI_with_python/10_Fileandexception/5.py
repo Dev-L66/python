@@ -5,5 +5,9 @@
 #    file.close()
 
 
-with open("order.txt", "w") as file:
-    file.write("Hello world 2!!!!!!!!")
+# with open("order.txt", "w") as file:
+#     file.write("Hello world 2!!!!!!!!")
+
+
+
+
